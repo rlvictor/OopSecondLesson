@@ -7,6 +7,16 @@ class RadioTest {
 
     @Test
 
+    public void setStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(49);
+
+        int expected = 49;
+        int actual = radio.getCurrentStation();
+    }
+
+    @Test
+
     public void shouldSetStationFortyNine() {
         Radio radio = new Radio(50);
 
@@ -222,7 +232,7 @@ class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-    
+
     @Test
 
     public void setVolumeSubZero() {
