@@ -7,6 +7,85 @@ class RadioTest {
 
     @Test
 
+    public void setStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(49);
+
+        int expected = 49;
+        int actual = radio.getCurrentStation();
+    }
+
+    @Test
+
+    public void shouldSetStationFortyNine() {
+        Radio radio = new Radio(50);
+
+        radio.setCurrentStation(49);
+
+        int expected = 49;
+        int actual = radio.getCurrentStation();
+
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void shouldSetStationFifty() {
+        Radio radio = new Radio(50);
+
+        radio.setCurrentStation(50);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void shouldSetStationFiftyOne() {
+        Radio radio = new Radio(50);
+
+        radio.setCurrentStation(51);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void ShouldNextStationAfterFortyNine() {
+        Radio radio = new Radio(50);
+
+        radio.setCurrentStation(49);
+        radio.nextStation();
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void ShouldPrevStationAfterNull() {
+        Radio radio = new Radio(50);
+
+        radio.setCurrentStation(0);
+        radio.prevStation();
+
+        int expected = 49;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+
     public void shouldSetStationSubZero() {
         Radio radio = new Radio();
 
@@ -141,6 +220,7 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
     public void shouldPrevStationBeforeOne() {
         Radio radio = new Radio();
 
